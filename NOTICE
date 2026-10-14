@@ -1,0 +1,31 @@
+MuMain Upscaled Textures
+Copyright (c) 2026 Nolt (upscaling, selection and packaging)
+
+ORIGINAL ARTWORK
+
+The files in Data/ are upscaled versions of textures from the MU Online game
+client by Webzen Inc., as distributed with the MuMain project
+(https://github.com/sven-n/MuMain). Webzen retains all rights to the original
+artwork. This repository grants no rights to it; the files may be used only
+under the same conditions as the original assets.
+
+UPSCALING MODELS
+
+The textures were produced with these models:
+
+- 4x-UltraSharp by Kim2091
+  https://openmodeldb.info/models/4x-UltraSharp
+  License: CC BY-NC-SA 4.0
+
+- 4x_foolhardy_Remacri by FoolhardyVEVO
+  https://openmodeldb.info/models/4x-Remacri
+  License: CC BY-NC-SA 4.0
+
+CC BY-NC-SA 4.0: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Changes made: every texture was upscaled ×4 (or ×2 where ×4 would exceed
+1024 px), re-encoded in its original OZJ/OZT format, and marked with a scale
+marker in the first four bytes of the header.
+
+NON-COMMERCIAL USE ONLY. The files are provided as is, without warranty of any
+kind.
