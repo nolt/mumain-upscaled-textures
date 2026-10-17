@@ -13,8 +13,10 @@ nakładką: zawiera tylko powiększone pliki, a całą resztę klient bierze z w
 
 ## Wymagania
 
-Klient musi rozpoznawać znacznik skali w tych plikach. Obsługę zaproponowano do
-MuMain w PR 718. Klient bez niej rysuje każdą teksturę kilka razy za dużą.
+Klient musi rozpoznawać znacznik skali w tych plikach (MuMain PR 718) i obsługiwać
+paczki tekstur w `Data/TexturePacks/` (MuMain PR 763). Klient bez znacznika rysuje
+każdą teksturę kilka razy za dużą. Klient ze znacznikiem, ale bez paczek tekstur
+pomija tę paczkę; do niego służy wydanie v1.0, którego pliki nadpisują te w `Data/`.
 
 Tekstury powstały z oryginalnych plików gry z katalogu `Data/` w MuMain. Tekstury
 świata, modeli i efektów nie zależą od interfejsu. Tekstury z `Interface/` rysują
@@ -24,11 +26,15 @@ oraz te części interfejsu, których jeszcze nie przeniesiono do RmlUi.
 ## Instalacja
 
 1. Pobierz archiwum z [Releases](../../releases) albo sklonuj repozytorium.
-2. Skopiuj jego katalog `Data/` do katalogu klienta, obok `Main` / `Main.exe`,
-   i pozwól nadpisać istniejące pliki.
+2. Skopiuj jego katalog `Data/` do katalogu klienta, obok `Main` / `Main.exe`.
+   Tekstury trafiają do `Data/TexturePacks/Upscaled/` i żaden oryginalny plik nie
+   jest nadpisywany.
+3. W opcjach gry, w zakładce **Interface**, wybierz `Upscaled` w polu
+   **Texture Pack** (w polskim interfejsie **Paczka tekstur**) i uruchom grę ponownie.
 
-Żeby wrócić do oryginału, przywróć pliki z paczki klienta albo z `src/bin/Data`
-w repozytorium MuMain.
+Żeby wrócić do oryginalnych tekstur, wybierz tam **Original** (po polsku **Oryginalne**)
+i uruchom grę ponownie.
+Potem folder można usunąć.
 
 Powiększone pliki zajmują około 2,8 GB na dysku i potrzebują odpowiednio więcej
 pamięci karty graficznej niż oryginały.
@@ -42,8 +48,10 @@ więc teren, modele i układ interfejsu zostają bez zmian. Powiększone tekstur
 dostają też mipmapy i filtrowanie trójliniowe, dzięki czemu szczegóły nie migoczą
 z daleka.
 
-Pliki bez znacznika ładują się jak dotąd, więc oryginały i pliki powiększone można
-dowolnie mieszać, na przykład powiększyć tylko świat, a interfejs zostawić oryginalny.
+Dla każdej tekstury klient czyta kopię z aktywnej paczki, jeśli istnieje, a w przeciwnym
+razie oryginał z `Data/`. Pliki bez znacznika ładują się jak dotąd, więc oryginały
+i pliki powiększone można dowolnie mieszać, na przykład zostawić oryginalny interfejs,
+usuwając `Data/TexturePacks/Upscaled/Interface/`.
 
 ## Czego nie powiększono
 

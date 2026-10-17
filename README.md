@@ -14,9 +14,11 @@ copies of everything else.
 
 ## Requirements
 
-The client has to recognise the scale marker in these files. Support for it was
-proposed to MuMain in PR 718. A client without it draws every texture several
-times too large.
+The client has to recognise the scale marker in these files (MuMain PR 718) and
+support texture packs in `Data/TexturePacks/` (MuMain PR 763). A client without
+the marker draws every texture several times too large. A client with the marker
+but without texture packs ignores this pack; for it, use release v1.0, whose files
+overwrite those in `Data/`.
 
 The textures are made from the original game files in MuMain's `Data/` folder.
 World, model and effect textures do not depend on the UI. The `Interface/`
@@ -26,11 +28,14 @@ and by the parts of the UI not yet moved to RmlUi.
 ## Installing
 
 1. Download the archive from [Releases](../../releases), or clone the repository.
-2. Copy its `Data/` folder into the client folder, next to `Main` / `Main.exe`, and
-   let it overwrite the existing files.
+2. Copy its `Data/` folder into the client folder, next to `Main` / `Main.exe`.
+   The textures land in `Data/TexturePacks/Upscaled/` and no original file is
+   overwritten.
+3. In the game's options, **Interface** tab, choose `Upscaled` under
+   **Texture Pack** and restart the game.
 
-To go back, restore the original files from your client package or from
-`src/bin/Data` in the MuMain repository.
+To go back to the original textures, choose **Original** there and restart the
+game. The folder can then be deleted.
 
 The upscaled files take about 2.8 GB on disk and need correspondingly more video
 memory than the originals.
@@ -43,8 +48,10 @@ marker uploads the full image but keeps the original size as the texture size, s
 terrain, models and UI layouts stay as they were. The upscaled textures also get
 mipmaps and trilinear filtering, so their detail does not shimmer at a distance.
 
-Files without the marker load as before, so original and upscaled files can be
-mixed freely, for example to upscale only the world and keep the original UI.
+For each texture the client reads the copy in the active pack when there is one
+and the original from `Data/` otherwise. Files without the marker load as before,
+so original and upscaled files can be mixed freely, for example to keep the
+original UI by deleting `Data/TexturePacks/Upscaled/Interface/`.
 
 ## What is not upscaled
 
