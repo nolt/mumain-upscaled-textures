@@ -56,7 +56,8 @@ original UI by deleting `Data/TexturePacks/Upscaled/Interface/`.
 ## What is not upscaled
 
 93 files stay original: canvases the client draws into, terrain lighting, files
-too large for the client's 1024 px limit and files the upscaler cannot read.
+that were too large for the client's former 1024 px limit and files the upscaler
+cannot read.
 The full list with reasons is in [docs/not-upscaled.md](docs/not-upscaled.md).
 
 ## How the textures were made
@@ -68,7 +69,8 @@ original format, with the marker added:
 - **UI** (`Interface`, `Logo`, `Local`, `InGameShopBanner`, 982 files):
   `4x_foolhardy_Remacri` by FoolhardyVEVO.
 
-Files that would exceed 1024 px at ×4 were upscaled ×2 instead.
+Files that would have exceeded the client's former 1024 px limit at ×4 were
+upscaled ×2 instead. Since MuMain PR 758 the limit is the scale times 1024 px.
 
 ## License
 

@@ -5,16 +5,18 @@
 93 of the 7481 OZJ/OZT files of the client are not in this repository. The
 client keeps using its own copies, so nothing is missing.
 
-## Never upscale (55)
+## Kept original on purpose (55)
 
-The client draws into these textures or reads them into buffers of a fixed size.
-An upscaled copy garbles text or crashes the client.
+The client draws into these textures or reads them at a fixed size, so an
+upscaled copy gives nothing.
 
-- Canvases redrawn every frame (old UI text, guild mark):
+- Canvases redrawn every frame (old UI text, guild mark); the client brings an
+  upscaled guild mark back to the original size when it loads:
   - `Data/Interface/FontInput.OZT`
   - `Data/Interface/guild.OZT`
-- Terrain lighting (53 files), decoded into a fixed 256×256 buffer by a
-  separate loader that does not read the scale marker:
+- Terrain lighting (53 files): map data, not art, decoded into a fixed 256×256
+  buffer. The client always reads it from `Data/`, also with a texture pack
+  active:
   - `Data/World1/TerrainLight.OZJ`
   - `Data/World10/TerrainLight.OZJ`
   - `Data/World11/TerrainLight.OZJ`
@@ -71,8 +73,10 @@ An upscaled copy garbles text or crashes the client.
 
 ## Too large (29)
 
-The client loads textures up to 1024 px per side. These are already at or above
-half of that, so not even ×2 fits.
+When these textures were made, the client loaded textures up to 1024 px per
+side, and these files are already at or above half of that, so not even ×2 fit.
+Since MuMain PR 758 the client accepts a marked texture up to its scale times
+1024 px, so a later version of this pack can upscale them.
 
 - `Data/Effect/lavagiantBa_e.OZJ`
 - `Data/Interface/InGameShop/Ingame_Shopback.OZJ`

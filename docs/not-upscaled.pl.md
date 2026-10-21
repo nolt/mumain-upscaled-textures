@@ -5,16 +5,18 @@
 93 z 7481 plików OZJ/OZT klienta nie ma w tym repozytorium. Klient dalej używa
 własnych kopii, więc niczego nie brakuje.
 
-## Nigdy nie powiększać (55)
+## Celowo w oryginale (55)
 
-Klient rysuje po tych teksturach albo wczytuje je do buforów o stałym rozmiarze.
-Powiększona kopia psuje tekst albo wywraca klienta.
+Klient rysuje po tych teksturach albo wczytuje je w stałym rozmiarze, więc
+powiększona kopia nic nie daje.
 
-- Płótna rysowane co klatkę (tekst starego UI, herb gildii):
+- Płótna rysowane co klatkę (tekst starego UI, herb gildii); powiększony herb
+  gildii klient przy wczytaniu zmniejsza z powrotem do oryginalnego rozmiaru:
   - `Data/Interface/FontInput.OZT`
   - `Data/Interface/guild.OZT`
-- Oświetlenie terenu (53 plików), dekodowane do bufora 256×256 przez osobny
-  loader, który nie czyta znacznika skali:
+- Oświetlenie terenu (53 pliki): dane mapy, nie grafika, dekodowane do bufora
+  256×256. Klient zawsze czyta je z `Data/`, także przy aktywnej paczce
+  tekstur:
   - `Data/World1/TerrainLight.OZJ`
   - `Data/World10/TerrainLight.OZJ`
   - `Data/World11/TerrainLight.OZJ`
@@ -71,8 +73,10 @@ Powiększona kopia psuje tekst albo wywraca klienta.
 
 ## Za duże (29)
 
-Klient wczytuje tekstury do 1024 px na bok. Te mają już co najmniej połowę tego,
-więc nie zmieści się nawet ×2.
+Gdy powstawały te tekstury, klient wczytywał tekstury do 1024 px na bok, a te
+pliki mają już co najmniej połowę tego, więc nie mieściło się nawet ×2. Od MuMain
+PR 758 klient przyjmuje oznaczoną teksturę do skali razy 1024 px, więc kolejna
+wersja tej paczki może je powiększyć.
 
 - `Data/Effect/lavagiantBa_e.OZJ`
 - `Data/Interface/InGameShop/Ingame_Shopback.OZJ`

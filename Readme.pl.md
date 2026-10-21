@@ -56,8 +56,8 @@ usuwając `Data/TexturePacks/Upscaled/Interface/`.
 ## Czego nie powiększono
 
 93 pliki zostały w oryginale: płótna, po których klient rysuje, oświetlenie terenu,
-pliki za duże na limit klienta 1024 px oraz pliki, których program do powiększania
-nie potrafi odczytać. Pełna lista z powodami jest w
+pliki za duże na dawny limit klienta 1024 px oraz pliki, których program do
+powiększania nie potrafi odczytać. Pełna lista z powodami jest w
 [docs/not-upscaled.pl.md](docs/not-upscaled.pl.md).
 
 ## Jak powstały tekstury
@@ -69,7 +69,8 @@ w oryginalnym formacie, z dodanym znacznikiem:
 - **Interfejs** (`Interface`, `Logo`, `Local`, `InGameShopBanner`, 982 pliki):
   `4x_foolhardy_Remacri`, autor FoolhardyVEVO.
 
-Pliki, które w skali ×4 przekroczyłyby 1024 px, powiększono ×2.
+Pliki, które w skali ×4 przekroczyłyby dawny limit klienta 1024 px, powiększono ×2.
+Od MuMain PR 758 limit wynosi skalę razy 1024 px.
 
 ## Licencja
 
